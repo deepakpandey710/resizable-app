@@ -28,7 +28,7 @@ module.exports.add = async (req, res) => {
 module.exports.update = async (req, res) => {
     try {
         const { email, number } = req.body;
-        const data = await User.findOneAndUpdate({ email }, { number });
+        let data = await User.findOneAndUpdate({}, {email, number }, { new: true });
         let count = await updateCount();
         return res.json({ data:data?data:{}, count });
     } catch (err) {
