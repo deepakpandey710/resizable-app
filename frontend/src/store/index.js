@@ -17,21 +17,21 @@ export const getDetail = createAsyncThunk("user", async () => {
 
 
 export const updateUser = createAsyncThunk("update", async ({ email, number }) => {
-        const {data} = await axios.put("http://localhost:5000/api/user/update", {
-            email,
-            number,
-        });
-        return data;
-    }
+    const { data } = await axios.put(`${API_URL}/update`, {
+        email,
+        number,
+    });
+    return data;
+}
 );
 
 export const addUser = createAsyncThunk("add", async ({ email, number }) => {
-        const {data} = await axios.post("http://localhost:5000/api/user/add", {
-            email,
-            number,
-        });
-        return data;
-    }
+    const { data } = await axios.post(`${API_URL}/add`, {
+        email,
+        number,
+    });
+    return data;
+}
 );
 
 const UserSlice = createSlice({
