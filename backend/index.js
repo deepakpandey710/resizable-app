@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 const userRoutes = require("./routes/UserRoutes");
 const app = express();
 
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000'
+  }));
 app.use(express.json());
 
 mongoose.connect('mongodb+srv://deepakpandey7100:tk3Vaq6BVgbi0EiZ@cluster0.ldvrfga.mongodb.net/dataNeuron?retryWrites=true&w=majority&appName=Cluster0')
